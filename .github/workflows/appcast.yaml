@@ -1,0 +1,17 @@
+# Trigger build 1
+name: Appcast
+
+on:
+  push:
+    branches: [main]
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  call-workflow:
+    uses: sindresorhus/appcast-workflow/.github/workflows/appcast.yml@main
+    secrets: inherit
+    permissions:
+      pages: write
+      id-token: write
